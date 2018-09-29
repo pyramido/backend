@@ -11,7 +11,7 @@ return [
     |
     */
 
-    'name' => env('APP_NAME', 'Laravel'),
+    'name' => env('APP_NAME', 'Pyramido'),
     /*
     |--------------------------------------------------------------------------
     | Application Environment
@@ -59,7 +59,7 @@ return [
     |
     */
 
-    'timezone' => 'UTC',
+    'timezone' => 'America/New_York',
     /*
     |--------------------------------------------------------------------------
     | Application Locale Configuration
