@@ -16,11 +16,11 @@ class CreateRewardsTable extends Migration
             $table->increments('id');
             $table->string('title');
             $table->text('description');
-            $table->unsignedInteger('author_id')->nullable();
+            $table->unsignedInteger('event_id')->nullable();
             $table
-                ->foreign('author_id')
+                ->foreign('event_id')
                 ->references('id')
-                ->on('users');
+                ->on('events');
             $table->timestamps();
         });
     }

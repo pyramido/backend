@@ -13,6 +13,14 @@ class EventResource extends JsonResource
      */
     public function toArray($request)
     {
-        return parent::toArray($request);
+        return [
+            'id' => $this->id,
+            'title' => $this->title,
+            'description' => $this->description,
+            'date' => $this->date,
+            'contact_email' => $this->contact_email,
+            'rewards' => RewardResource::collection($this->whenLoaded('rewards')),
+            'author' => new PublicUserResource($this->whenLoaded('author'))
+        ];
     }
 }

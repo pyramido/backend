@@ -14,8 +14,10 @@ use Faker\Generator as Faker;
 
 $factory->define(App\User::class, function (Faker $faker) {
     return [
+        'facebook_id' => $faker->uuid,
         'first_name' => $faker->firstName,
         'last_name' => $faker->lastName,
-        'email' => $faker->unique()->safeEmail
+        'email' => $faker->unique()->safeEmail,
+        'avatar_url' => $faker->imageUrl(300, 300)
     ];
 });

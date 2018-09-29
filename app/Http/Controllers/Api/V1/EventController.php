@@ -21,7 +21,7 @@ class EventController extends Controller
      */
     public function index(IndexRequest $request): ResourceCollection
     {
-        return EventResource::collection(Event::paginate($request->input('limit', 20)));
+        return EventResource::collection(Event::pimp()->paginate($request->input('limit', 20)));
     }
 
     /**
@@ -36,7 +36,7 @@ class EventController extends Controller
             auth()
                 ->guard('api')
                 ->user()
-                ->evenements()
+                ->events()
                 ->create(array_filter($request->only(['title', 'date'])))
         );
     }
@@ -45,12 +45,12 @@ class EventController extends Controller
      * Display the specified resource.
      *
      * @param ShowRequest $request
-     * @param Event $event
+     * @param $id
      * @return EventResource
      */
-    public function show(ShowRequest $request, Event $event): EventResource
+    public function show(ShowRequest $request, $id): EventResource
     {
-        return new EventResource($event);
+        return new EventResource(Event::pimp()->findOrFail($id));
     }
 
     /**
