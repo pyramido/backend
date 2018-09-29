@@ -30,7 +30,7 @@ class CreateInvitesTable extends Migration
                 ->foreign('accepted_by')
                 ->references('id')
                 ->on('users');
-            $table->index(['event_id', 'invite_from', 'invite_to'], 'invites_indexes');
+            $table->index(['event_id', 'sent_by', 'accepted_by'], 'invites_indexes');
             $table->timestamps();
         });
     }
