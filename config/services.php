@@ -22,5 +22,10 @@ return [
     'sparkpost' => ['secret' => env('SPARKPOST_SECRET')],
     'stripe' =>
         ['model' => App\User::class, 'key' => env('STRIPE_KEY'), 'secret' => env('STRIPE_SECRET')],
-    'facebook' => ['client_secret' => env('FACEBOOK_CLIENT_SECRET')]
+    'facebook' =>
+        [
+            'client_id' => env('FACEBOOK_CLIENT_ID'),
+            'client_secret' => env('FACEBOOK_CLIENT_SECRET'),
+            'redirect' => ''
+        ]
 ];

@@ -22,6 +22,11 @@ class UpdateRequest extends FormRequest
      */
     public function rules(): array
     {
-        return ['title' => 'filled', 'date' => 'filled|date'];
+        return [
+            'title' => 'filled',
+            'description' => 'filled',
+            'date' => 'filled|date',
+            'contact_email' => 'nullable|email'
+        ];
     }
 }

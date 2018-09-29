@@ -22,7 +22,7 @@ class AuthController extends Controller
 
         // Create the user if it doesn't exist
         $user = User::firstOrCreate(
-            ['facebook_id', $response->getId()],
+            ['facebook_id' => $response->getId()],
             [
                 'first_name' => $firstname,
                 'last_name' => $lastname,

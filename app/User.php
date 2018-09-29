@@ -13,7 +13,7 @@ class User extends Authenticatable
      *
      * @var array
      */
-    protected $fillable = ['name', 'email'];
+    protected $fillable = ['first_name', 'last_name', 'email', 'avatar_url', 'facebook_id'];
 
     /**
      * The attributes that should be hidden for arrays.
@@ -21,4 +21,9 @@ class User extends Authenticatable
      * @var array
      */
     protected $hidden = ['facebook_id', 'api_token'];
+
+    public function events()
+    {
+        return $this->hasMany(Event::class, 'author_id');
+    }
 }

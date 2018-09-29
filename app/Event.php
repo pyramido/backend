@@ -2,9 +2,8 @@
 namespace App;
 
 use Jedrzej\Pimpable\PimpableTrait;
-use Illuminate\Database\Eloquent\Model;
 
-class Event extends Model
+class Event extends BaseModel
 {
     use PimpableTrait;
 

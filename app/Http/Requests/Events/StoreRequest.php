@@ -22,6 +22,11 @@ class StoreRequest extends FormRequest
      */
     public function rules(): array
     {
-        return ['title' => 'required', 'date' => 'required|date'];
+        return [
+            'title' => 'required',
+            'description' => 'required',
+            'date' => 'required|date',
+            'contact_email' => 'nullable|email'
+        ];
     }
 }

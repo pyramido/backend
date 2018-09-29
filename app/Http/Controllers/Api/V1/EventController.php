@@ -13,6 +13,8 @@ use Illuminate\Http\Resources\Json\ResourceCollection;
 
 class EventController extends Controller
 {
+    private const ALLOWED_FIELDS = ['title', 'date', 'description', 'contact_email'];
+
     /**
      * Display a listing of the resource.
      *
@@ -37,7 +39,7 @@ class EventController extends Controller
                 ->guard('api')
                 ->user()
                 ->events()
-                ->create(array_filter($request->only(['title', 'date'])))
+                ->create(array_filter($request->only(self::ALLOWED_FIELDS)))
         );
     }
 
@@ -63,7 +65,7 @@ class EventController extends Controller
     public function update(UpdateRequest $request, Event $event): EventResource
     {
         return new EventResource(
-            tap($event)->update(array_filter($request->only(['title', 'date'])))
+            tap($event)->update(array_filter($request->only(self::ALLOWED_FIELDS)))
         );
     }
 
