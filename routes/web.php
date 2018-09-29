@@ -79,10 +79,10 @@ Route::group(['prefix' => 'deploy'], function () {
             'whoami',
             '/usr/bin/git pull',
             '/usr/bin/git status',
-            '/opt/cpanel/composer/bin/composer install',
-            '/opt/cpanel/composer/bin/composer dump-autoload',
-            '/usr/local/bin/php artisan migrate',
-            '/usr/local/bin/php artisan config:cache'
+            '/usr/bin/composer install',
+            '/usr/bin/composer dump-autoload',
+            '/usr/bin/php artisan migrate',
+            '/usr/bin/php artisan config:cache'
         );
 
         // Run the commands for output
