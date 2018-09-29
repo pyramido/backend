@@ -11,7 +11,8 @@
         "jedrzej/pimpable": "^0.0.4",
         "laravel/framework": "5.7.*",
         "laravel/socialite": "^3.1",
-        "laravel/tinker": "^1.0"
+        "laravel/tinker": "^1.0",
+        "spatie/laravel-medialibrary": "^7.0.0"
     },
     "require-dev": {
         "barryvdh/laravel-debugbar": "^3.2",

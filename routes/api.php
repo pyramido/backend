@@ -13,6 +13,10 @@ Route
         Route::middleware('auth:api')->group(function () {
             Route::apiResource('events', 'EventController');
             Route::apiResource('events/{event}/rewards', 'RewardController');
+            Route::patch('events/{event}/medias/reorder', 'EventMediaController@reorder');
+            Route::apiResource('events/{event}/medias', 'EventMediaController', [
+                'only' => ['store', 'update', 'destroy']
+            ]);
             Route::apiResource('invites', 'InviteController');
             Route::apiResource('participations', 'ParticipationController');
         });
