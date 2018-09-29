@@ -23,9 +23,9 @@ Route::group(['prefix' => 'deploy'], function () {
 
             // Get content
             $content = file_get_contents("php://input");
+            die(var_dump($content));
             $json = json_decode($content, true);
 
-            die(var_dump($json['ref']));
             if ($json['ref'] !== 'refs/heads/master') {
                 return response('Invalid branch.', 403);
             }
