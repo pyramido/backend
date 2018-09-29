@@ -29,4 +29,7 @@ Route
         Route::post('auth/login', 'AuthController@login');
 
         Route::apiResource('events', 'EventController', ['only' => ['index', 'show']]);
+        Route::apiResource('events/{event}/rewards', 'RewardController', [
+            'only' => ['index', 'show']
+        ]);
     });

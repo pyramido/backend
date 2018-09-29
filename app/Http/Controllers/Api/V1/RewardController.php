@@ -32,6 +32,7 @@ class RewardController extends Controller
      * Store a newly created resource in storage.
      *
      * @param StoreRequest $request
+     * @param Event $event
      * @return RewardResource
      */
     public function store(StoreRequest $request, Event $event): RewardResource
