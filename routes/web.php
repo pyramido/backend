@@ -67,8 +67,10 @@ Route::group(['prefix' => 'deploy'], function () {
 
         chdir(env('DEPLOY_PATH', base_path()));
 
-        putenv('PATH=');
-        putenv('HOME=/home/pyramido');
+        putenv(
+            'PATH=/home/api/bin:/home/api/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin'
+        );
+        putenv('HOME=/home/api');
 
         // The commands
         $commands = array(
