@@ -17,6 +17,7 @@ class CreateUsersTable extends Migration
             $table->string('facebook_id');
             $table->string('first_name');
             $table->string('last_name');
+            $table->string('avatar_url');
             $table->string('email')->unique();
             $table
                 ->string('api_token', 60)

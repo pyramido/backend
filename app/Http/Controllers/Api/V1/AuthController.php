@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Api\V1;
 use App\User;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Resources\UserResource;
+use Laravel\Socialite\Facades\Socialite;
 use App\Http\Requests\Users\LoginRequest;
 
 class AuthController extends Controller
@@ -13,13 +14,20 @@ class AuthController extends Controller
         // Grab Facebook user details
         $response = Socialite::driver('facebook')->userFromToken($request->input('token'));
 
+        // Get first & last name
+        $fullname = $response->getName();
+        $name_parts = explode(' ', $fullname);
+        $lastname = array_pop($name_parts);
+        $firstname = implode(' ', $name_parts);
+
         // Create the user if it doesn't exist
         $user = User::firstOrCreate(
-            ['facebook_id', $response->id],
+            ['facebook_id', $response->getId()],
             [
-                'first_name' => $response->first_name,
-                'last_name' => $response->last_name,
-                'email' => $response->email
+                'first_name' => $firstname,
+                'last_name' => $lastname,
+                'avatar_url' => $response->getAvatar(),
+                'email' => $response->getEmail()
             ]
         );
 
