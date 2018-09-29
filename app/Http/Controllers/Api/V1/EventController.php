@@ -1,5 +1,5 @@
 <?php
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Api\V1;
 
 use App\Event;
 use Illuminate\Http\JsonResponse;
