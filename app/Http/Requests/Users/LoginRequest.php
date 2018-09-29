@@ -22,6 +22,6 @@ class LoginRequest extends FormRequest
      */
     public function rules(): array
     {
-        return ['access_token' => 'required'];
+        return ['token' => 'required'];
     }
 }
