@@ -26,7 +26,7 @@ Route::group(['prefix' => 'deploy'], function () {
             $json = json_decode($content, true);
 
             if ($json['ref'] !== 'refs/heads/master') {
-                return response()->send();
+                return response('Invalid branch.', 403);
             }
 
             // Compare
