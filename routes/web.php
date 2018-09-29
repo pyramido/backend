@@ -23,6 +23,11 @@ Route::group(['prefix' => 'deploy'], function () {
 
             // Get content
             $content = file_get_contents("php://input");
+            $json = json_decode($content, true);
+
+            if ($json['ref'] !== 'refs/heads/master') {
+                return response()->send();
+            }
 
             // Compare
             if (
