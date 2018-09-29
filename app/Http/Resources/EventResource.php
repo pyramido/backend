@@ -19,6 +19,11 @@ class EventResource extends JsonResource
             'description' => $this->description,
             'date' => $this->date,
             'contact_email' => $this->contact_email,
+            'medias' =>
+                [
+                    'first' => new MediaResource($this->media()->first()),
+                    'all' => MediaResource::collection($this->whenLoaded('media'))
+                ],
             'rewards' => RewardResource::collection($this->whenLoaded('rewards')),
             'author' => new PublicUserResource($this->whenLoaded('author'))
         ];

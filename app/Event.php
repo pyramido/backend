@@ -2,10 +2,13 @@
 namespace App;
 
 use Jedrzej\Pimpable\PimpableTrait;
+use Spatie\MediaLibrary\HasMedia\HasMedia;
+use Spatie\MediaLibrary\HasMedia\HasMediaTrait;
 
-class Event extends BaseModel
+class Event extends BaseModel implements HasMedia
 {
     use PimpableTrait;
+    use HasMediaTrait;
 
     public function author()
     {
