@@ -1,0 +1,27 @@
+language: php
+
+php:
+  - 7.2
+
+services:
+  - mysql
+
+before_script:
+  - mv .env.ci .env
+  - composer self-update
+  - composer install --no-interaction
+  - mysql -u root < database/init.sql
+  - php artisan key:generate
+  - php artisan storage:link
+  - php artisan migrate
+
+script:
+- vendor/bin/phpunit
+
+notifications:
+  email:
+    recipients:
+       - mathiass12@digitsam.ca
+       - keven@nevek.co
+    on_success: always
+    on_failure: always
